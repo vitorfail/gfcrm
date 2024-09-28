@@ -1,0 +1,333 @@
+:root{
+    --delay:0.7s;
+    --cor-base:#5b5675;
+    --cor-destaque:#141125;
+    --cor-thema:#27ae60;
+    --cor-problema:#bd4f2d;
+    --cor-banner1:rgb(245, 255, 197);
+    --cor-banner2: rgb(237, 249, 255);
+    --cor-banner3: rgb(236, 249, 255);
+}
+@font-face {
+    font-family: "Pop";
+    src: url("Poppins-ExtraLight.ttf");
+    font-weight: 100;
+}
+@font-face {
+    font-family: "Pop";
+    src: url("Poppins-Light.ttf");
+    font-weight: 200;
+}
+@font-face {
+    font-family: "Pop";
+    src: url("Poppins-Medium.ttf");
+    font-weight: 300;
+}
+@font-face {
+    font-family: "Pop";
+    src: url("Poppins-Regular.ttf");
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Pop";
+    src: url("Poppins-Bold.ttf");
+    font-weight: 500;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    font-family: "Pop";
+    font-weight: 200;
+}
+html, body {
+    height: 100%; /* Faz o html e o body ocuparem toda a altura da janela */
+    margin: 0; /* Remove a margem padrão */
+}
+body{
+    width: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    color: white;
+    justify-content: space-between;
+    padding: 10px;
+    flex-direction: column;
+    background: linear-gradient(rgb(181, 181, 230), rgb(196, 196, 243));
+}
+.barralateral .link{
+    list-style: none;
+}
+.barralateral{
+    position: fixed;
+    background: linear-gradient(var(--barra--lateral), var(--barra--lateral)), url('../../icones/download.jpg');
+    background-repeat: no-repeat;
+    background-size: 1020px 100%;
+    width: 15vw;
+    min-height: 100vh;
+}
+.barralateral .nome_titulo{
+    border-bottom: 1px solid rgb(255, 255, 255, 0.2);
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.barralateral .nome_titulo .link{
+    visibility:hidden;
+    position: relative;
+}
+.barralateral .nome_titulo .link::before{
+    visibility: visible;
+    padding: 5px 19px;
+    content: 'Forwin';
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+}
+.barralateral ul .link{
+    width: 100%;
+    border: none;
+    background: none;
+    font-size: 18px;
+    font-style:inherit;
+    padding: 10px 19px;
+    display: flex;
+    align-items: center;
+    color: ivory;
+    cursor: pointer;
+}
+.barralateral ul .link:hover{
+    background-color: ivory;
+    color: var(--vermelho);
+    -webkit-transition: 0.11s ease-in;
+    -moz-transition: 0.11s ease-in;
+    -o-transition: 0.11 ease-in;
+    transition: 0.11s ease-in;
+    border-radius: 24px 0px 0px 24px;
+	-moz-border-radius: 24px 0px 0px 24px;
+	-webkit-border-radius: 24px 0px 0px 24px;
+}
+.barralateral ul .link.focus{
+    background: rgb(224, 224, 224);
+    color: var(--vermelho);
+    -webkit-transition: 0.11s ease-in;
+    -moz-transition: 0.11s ease-in;
+    -o-transition: 0.11 ease-in;
+    transition: 0.11s ease-in;
+    border-radius: 24px 0px 0px 24px;
+	-moz-border-radius: 24px 0px 0px 24px;
+	-webkit-border-radius: 24px 0px 0px 24px;
+}
+.barralateral ul .busines{
+    background-color: ivory;
+    color: var(--vermelho);
+    -webkit-transition: 0.11s ease-in;
+    -moz-transition: 0.11s ease-in;
+    -o-transition: 0.11 ease-in;
+    transition: 0.11s ease-in;
+    border-radius: 24px 0px 0px 24px;
+	-moz-border-radius: 24px 0px 0px 24px;
+	-webkit-border-radius: 24px 0px 0px 24px;
+}
+.barralateral ul .planilha{
+    color: var(--vermelho);
+    -webkit-transition: 0.11s ease-in;
+    -moz-transition: 0.11s ease-in;
+    -o-transition: 0.11 ease-in;
+    transition: 0.11s ease-in;
+    border-radius: 24px 0px 0px 24px;
+	-moz-border-radius: 24px 0px 0px 24px;
+	-webkit-border-radius: 24px 0px 0px 24px;
+}
+.barralateral ul .cad1{
+    background-color: ivory;
+    color: var(--vermelho);
+    -webkit-transition: 0.11s ease-in;
+    -moz-transition: 0.11s ease-in;
+    -o-transition: 0.11 ease-in;
+    transition: 0.11s ease-in;
+    border-radius: 24px 0px 0px 24px;
+	-moz-border-radius: 24px 0px 0px 24px;
+	-webkit-border-radius: 24px 0px 0px 24px;
+}
+@media screen and (max-width: 940px){
+    .barralateral .link span{
+        display: none;
+    }
+    .barralateral{
+        align-items: center;
+    }
+    .barralateral .link img{
+        width: 37px;
+        height: 37px;
+    }
+}
+.barra{
+    position: absolute;
+    right: 0%;
+    width: 85vw;
+    height: 100vh;
+    background-color: rgb(224, 224, 224);
+}
+.barra .cabecalho{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 85vw;
+    height: 10vh;
+    background-color: var(--cor--da--barra);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+.barra .cabecalho .barra_de_pesquisa{
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+.barra .cabecalho .barra_de_pesquisa .pesquisa{
+    flex: 3;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.barra .cabecalho .barra_de_pesquisa .pesquisa input[type=text]{
+    border: none;
+    background: whitesmoke;
+    height: 37px;
+    width: 50%;
+    padding: 10px;
+}
+.barra .cabecalho .barra_de_pesquisa .pesquisa input[type=text]:focus{
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+.barra .cabecalho .barra_de_pesquisa .pesquisa .p{
+    z-index: 4000;
+    width: 37px;
+    height: 37px;
+    border: none;
+    cursor: pointer;
+    background: whitesmoke;
+
+}
+.barra .cabecalho .barra_de_pesquisa .pesquisa img{
+    width: 30px;
+    height: 30px;
+}
+.barra .cabecalho .barra_de_pesquisa .pesquisa .list{
+    display: none;
+}
+.barra .cabecalho .barra_de_pesquisa .pesquisa .list:active{
+    animation: rot 0.5s linear;
+}
+.barra .cabecalho .barra_de_pesquisa .user{
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.barra .cabecalho .barra_de_pesquisa .user .usuario{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+
+.barra .cabecalho .barra_de_pesquisa .user h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    border-radius: 50px;
+    background: var(--vermelho);
+    color: white;
+    width: 40px;
+    height: 40px;
+}
+.barra .cabecalho .barra_de_pesquisa .user h1:hover{
+    cursor: pointer;
+}
+.barra .cabecalho .barra_de_pesquisa .user .usuario img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.balao {
+    display:none;
+    z-index: 450000;
+    position: fixed;
+    margin-top: 260px;
+    padding: 2px;
+    margin-left: -38%;
+    padding-top: 25px;
+    color: #000;
+    background: var(--vermelho);
+    border-radius: 20px;
+    width: 240px;
+    height: 164px;
+    color: white;
+    flex-wrap: wrap;
+    -webkit-transition: 0.5s ease-out;
+    -moz-transition: 0.5s ease-out;
+    -o-transition: 0.5s ease-out;
+    transition: 0.5s ease-out;
+    box-shadow: 0 15px 50px 0 rgba(0, 0, 0, 0.4);
+}
+.balao .link{
+    z-index: 2;
+    justify-content:center;
+    align-items: center;
+    color: var(--letra--padrao);
+    width: 100px;
+    display: flex;
+}
+.balao img{
+    width: 14px;
+    height: 14px;
+}
+.balao::before{
+    font-size: 30px;
+    position: absolute;
+    margin-left: 9px;
+    margin-top: -32px;
+    content: '40';
+    color: var(--vermelho);
+    background: var(--vermelho);
+    -webkit-transform: rotate(-50deg);
+
+}
+.balao.mostrar{
+    display: flex;
+}
+@media screen and (max-width:640px){
+    .barra .cabecalho .barra_de_pesquisa .pesquisa .list{
+        margin-left: -35px;
+        margin-right: 15px;
+        display: flex;
+    }
+    .barra .cabecalho .barra_de_pesquisa .user .usuario {
+        width: 40px;
+        height: 30px;
+    }
+    .barra .cabecalho .barra_de_pesquisa .pesquisa input {
+        width: 60%;
+        font-size: 12px;
+    }
+    .barra .cabecalho .barra_de_pesquisa{
+        width: 90%;   
+    }
+    .barra .cabecalho .barra_de_pesquisa .user h1{
+        background: white;
+        color:var(--vermelho)
+    }
+
+}

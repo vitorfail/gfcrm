@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet"  type="text/css" href="style.css">
+    <title>GF360n QRCode</title>
+</head>
+<body>
+    <div className="barralateral">
+        <div className="nome_titulo">
+            <Link  className='link' to='/'>Forwin</Link>
+        </div>
+        <ul>
+            <a class={label1}  to='/graficos'><img src={Planilha} alt='Planilha'/>&nbsp;<span >Planilha</span></a>
+            <a  class={label2}   to='/cadastro' ><img src={Instituicao} alt='Instituição'/>&nbsp;<span >Cadastro</span></a>
+            <a class={label3}  to='/financeiro' ><img src={DRE} alt='DRE'/>&nbsp;<span >DRE</span></a>
+            <a class={label4}  to='/ajuda' ><img src={Config} alt='Config'/>&nbsp;<span >Ajuda</span></a>
+            <div class="link" alt='Saida'/>&nbsp;<span>Sair</span></div>
+        </ul>
+    </div>
+    <div class="barra">
+        <div className="cabecalho">
+            <div className="barra_de_pesquisa">
+                <div className="pesquisa">
+                    <img  class='list'  src={lista} alt="Lista"/>
+                    <input type="text" onKeyPress={(event) => entrar(event)} onChange={(event) => setnomepesquisa(event.target.value)} name="c-pesquisa" placeholder="Pesquise...."/>
+                    <div onClick={(event) => pesquisa()} className='p' ><img src={lupa} alt=""/></div>
+                </div>
+                <div className="user">
+                    <div  className="btn"  onClick={() => setConta('modal-conta mostrar')} >Adicionar Conta</div>
+                    <div className="usuario" onClick={() => mostrar_inserirnome()}>
+                        <h1 className='nome_de_usuario'>{titulo}</h1>
+                    </div>
+                </div>
+            </div>
+            <InserirNome mostrar = {abrirNome}  executar={show.bind(this)}>
+            </InserirNome>
+            <div className={abrirConta}>
+                <div className="modal">
+                    <img src={Conta} width="50px" height="50px" alt='Conta'/>
+                    <h2>Divida</h2>
+                    <p className={preencha}>Preencha todos os dados</p>
+                    <div className="entrada">
+                        <h3>Tipo de Conta</h3>
+                        <input type="tex" className = "contas" onChange={(event) => setNome_conta(event.target.value)} placeholder="Água, luz, energia.."/>
+                        <h3>Vencimento</h3>
+                        <input type="date" onChange={(event) => setData(event.target.value)} className = "data"/>
+                        <h3>Valor</h3>
+                        <input type="tex" value={Valor} onChange={(event) => mask(event.target.value)} placeholder="00,00" className = "valor"/>
+                        <h3>Tipo</h3>
+                        <select className='tipo' onChange={(event) => setTipo(event.target.value)}>
+                            <option value='imposto'>Impostos</option>
+                            <option value='custo'>Custo das mercadorias/serviços</option>
+                            <option value='despesas-operacionais'>Despesas operacionais</option>
+                            <option value='despesas-venda'>Despesas com venda</option>
+                            <option value='depesas-financeiras'>Despesas financeiras</option>
+                            <option value='despesas-administracao'>Despesas de administração</option>
+                        </select>
+                    </div>
+                    <div className="botoes">
+                        <div className="botao-sim">
+                            <button className="sim" name="sim" value="Sim" onClick={(event) => troca()} >Salvar</button>
+                        </div>
+                        <div className="botao-nao">
+                            <button className="nao" name="nao" value="Não" onClick={() => fechar()}>Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+
+    </script>
+</body>
+</html>

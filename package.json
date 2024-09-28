@@ -1,0 +1,50 @@
+{
+  "name": "gf-qrcode",
+  "version": "1.0.0",
+  "description": "Gerador de Qrcode",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "pack": "electron-packager . gfqrcode --platform=win32 --arch=x64"
+  },
+  "build": {
+    "appId": "com.gfqrcode.id",
+    "productName": "GF 360 Qrcode",
+    "files": [
+      "dist/**/*",
+      "node_modules/**/*",
+      "main.js"
+    ],
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/favicon.ico"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/favicon.ico"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/favicon.ico"
+    }
+  },
+  "author": "Vitor Manoel",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^32.1.2",
+    "electron-builder": "^25.0.5",
+    "electron-packager": "^15.4.0",
+    "qrcode": "^1.5.4"
+  },
+  "dependencies": {
+    "fabric": "^6.4.2",
+    "jimp": "^0.16.1",
+    "qrcode": "^1.5.4"
+  },
+  "webPreferences": {
+    "nodeIntegration": true,
+    "contextIsolation": false
+  }
+  
+}

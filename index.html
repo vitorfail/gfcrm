@@ -10,11 +10,11 @@
     <div class="barralateral">
         <div class="logo"></div>
         <div class="items">
-            <div class="item">
+            <div onclick="home()" class="item">
                 <i class="fa-solid fa-house-user"></i>
                 <p>Home</p>
             </div>
-            <div class="item">
+            <div onclick="cadastro()" class="item">
                 <i class="fa-regular fa-id-card"></i>
                 <p>Cadastro</p>
             </div>
@@ -33,7 +33,7 @@
             </div>
         </div>
         <div class="center">
-            <div class="home">
+            <div id="home" class="home">
                 <div class="cards">
                     <div class="card">
                         <div class="descri">
@@ -55,25 +55,144 @@
                     </div>
                 </div>    
             </div>
-            <div class="cadastro">
-                <p>Nome</p>
-                <input/>
-                <p>Email</p>
-                <input/>
-                <p>Telefone</p>
-                <input/>
-                <p>Data</p>
-                <input/>
-
+            <div id="cadastro" class="cadastro">
+                <div class="container">
+                    <p>Nome</p>
+                    <input id="nome"/>
+                    <p>Email</p>
+                    <input id="email"/>
+                    <p>Telefone</p>
+                    <input id="telefone"/>
+                    <p>Data</p>
+                    <input type="text" id="data" maxlength="10"/>
+                    <button onclick="cadastrar()">Cadastrar</button>    
+                </div>
             </div>
         </div>
     </div>
     <script>
+        const sqlite3 = require('sqlite3').verbose();
+        const fs = require('fs');
+
+       window.onload = function() {
+            home()
+            // Coloque aqui o código que você quer executar após o carregamento da página
+        };
        function home(){
-        
+            var home_ = document.getElementById("home")
+            home_.style.display= "flex"
+            var cadastro_ = document.getElementById("cadastro")
+            cadastro_.style.display= "none"
+            puxar_home()
+       }
+       function cadastro(){
+            var home_ = document.getElementById("home")
+            home_.style.display= "none"
+            var cadastro_ = document.getElementById("cadastro")
+            cadastro_.style.display= "flex"
+       }
+       function puxar_home(){
+        const today = new Date();
+        const todayDay = today.getDate(); // Dia atual
+        const todayMonth = today.getMonth() + 1;
+        var numero_total =0
+        var aniversariantes =0
+        let db = new sqlite3.Database('./user.db', sqlite3.OPEN_READWRITE, (err) => {
+            if (err) {
+                console.error(err.message);
+            }
+        });
+
+        // Consulta o total de clientes na tabela "clientes"
+        db.get('SELECT COUNT(*) AS total FROM clientes', [], (err, row) => {
+            if (err) {
+                throw err;
+            }
+            numero_total =row.total
+            if (row.total > 0) {
+                
+                // Buscar clientes cujo dia e mês de nascimento correspondem à data atual
+                db.all(`SELECT nome, dta_nascimento FROM clientes 
+                        WHERE strftime('%d', dta_nascimento) = ? AND strftime('%m', dta_nascimento) = ?`, 
+                        [todayDay.toString().padStart(2, '0'), todayMonth.toString().padStart(2, '0')], 
+                        (err, rows) => {
+                    if (err) {
+                        throw err;
+                    }
+
+                    // Se encontrar usuários com a data de nascimento no dia e mês atuais
+                    if (rows.length > 0) {
+                        aniversariantes = rows.length
+                    } else {
+                        console.log("Nenhum cliente faz aniversário hoje.");
+                    }
+                });
+            } else {
+                console.log("Não há clientes registrados.");
+            }
+        });
+
+        // Fecha a conexão com o banco de dados
+        db.close((err) => {
+            if (err) {
+                console.error(err.message);
+            }
+            console.log('Conexão com o banco de dados fechada.');
+        });
        }
 
+        const input = document.getElementById('data');
 
+        input.addEventListener('input', function(e) {
+            let value = input.value.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
+            let formattedValue = '';
+
+            if (value.length > 0) {
+                // Adiciona o dia
+                formattedValue = value.substring(0, 2);
+            }
+            if (value.length >= 3) {
+                // Adiciona o mês
+                formattedValue += '/' + value.substring(2, 4);
+            }
+            if (value.length >= 5) {
+                // Adiciona o ano
+                formattedValue += '/' + value.substring(4, 8);
+            }
+
+            input.value = formattedValue;
+        });
+        function cadastrar(){
+            let db = new sqlite3.Database('./user.db', sqlite3.OPEN_READWRITE, (err) => {
+                if (err) {
+                    console.error(err.message);
+                }
+                console.log('Conectado ao banco de dados SQLite.');
+            });
+
+            // Insere um cliente com data de nascimento (YYYY-MM-DD)
+            const nome = document.getElementById("nome");
+            const email = document.getElementById("email");
+            const telefone = document.getElementById("telefone");  // formato YYYY-MM-DD
+            const dta_nascimento = document.getElementById("data");  // formato YYYY-MM-DD
+
+            let sql = `INSERT INTO clientes (nome, email,telefone, dta_nascimento) VALUES (?, ?, ?, ?)`;
+
+            db.run(sql, [nome, email, telefone,dta_nascimento], function(err) {
+                if (err) {
+                    return console.error(err.message);
+                }
+                console.log(`Cliente adicionado com o ID ${this.lastID}`);
+            });
+
+            // Fecha a conexão com o banco de dados
+            db.close((err) => {
+                if (err) {
+                    console.error(err.message);
+                }
+                console.log('Conexão com o banco de dados fechada.');
+            });
+        }
     </script>
 </body>
 </html>

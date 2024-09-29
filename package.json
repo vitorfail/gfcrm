@@ -35,16 +35,17 @@
     "electron": "^32.1.2",
     "electron-builder": "^25.0.5",
     "electron-packager": "^15.4.0",
+    "electron-reload": "^2.0.0-alpha.1",
     "qrcode": "^1.5.4"
   },
   "dependencies": {
     "fabric": "^6.4.2",
     "jimp": "^0.16.1",
-    "qrcode": "^1.5.4"
+    "qrcode": "^1.5.4",
+    "sqlite3": "^5.1.7"
   },
   "webPreferences": {
     "nodeIntegration": true,
     "contextIsolation": false
   }
-  
 }

@@ -1,31 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet"  type="text/css" href="style.css">
-    <title>GF360n QRCode</title>
+    <title>GF360 CRM</title>
 </head>
 <body>
     <div class="barralateral">
         <div class="logo"></div>
-        <div class="item">
-            <p>Home</p>
-        </div>
-        <div class="item">
-            <p>Cadastro</p>
-        </div>
-        <div class="item">
-            <p>Home</p>
-        </div>
-        <div class="item">
-            <p>Home</p>
+        <div class="items">
+            <div class="item">
+                <i class="fa-solid fa-house-user"></i>
+                <p>Home</p>
+            </div>
+            <div class="item">
+                <i class="fa-regular fa-id-card"></i>
+                <p>Cadastro</p>
+            </div>
         </div>
     </div>
     <div class="direito">
-        <div class="barra_pesquisa"></div>
-        <div class="center"></div>
+        <div class="barra_pesquisa">
+            <div class="pesquisar">
+                <select>
+                    <option>CPF</option>
+                    <option>Nome</option>
+                    <option>telefone</option>
+                </select>
+                <input placeholder="Pesquisar..."/>
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>    
+            </div>
+        </div>
+        <div class="center">
+            <div class="home">
+                <div class="cards">
+                    <div class="card">
+                        <div class="descri">
+                            <i class="fa-regular fa-user"></i>
+                            <p>0</p>
+                        </div>
+                        <div class="nome">
+                            <p>Clientes</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="descri">
+                            <i class="fa-solid fa-cake-candles"></i>
+                            <p>0</p>
+                        </div>
+                        <div class="nome">
+                            <p>Aniversariantes</p>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            <div class="cadastro">
+                <p>Nome</p>
+                <input/>
+                <p>Email</p>
+                <input/>
+                <p>Telefone</p>
+                <input/>
+                <p>Data</p>
+                <input/>
+
+            </div>
+        </div>
     </div>
     <script>
+       function home(){
+        
+       }
+
 
     </script>
 </body>

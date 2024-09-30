@@ -30,7 +30,8 @@ function createDatabase() {
                         nome TEXT NOT NULL,
                         telefone TEXT,
                         email TEXT,
-                        dta_nascimento DATE
+                        dta_nascimento DATE,
+                        dta_cadastro DATE
                     )`, (err) => {
                         if (err) {
                             console.error('Erro ao criar a tabela:', err.message);

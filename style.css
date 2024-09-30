@@ -42,15 +42,12 @@
     font-weight: 200;
 }
 body{
-    overflow: hidden;
     width: 100%;
     height: 100%;
     position: absolute;
     display: flex;
     align-items: center;
     color: white;
-    padding: 10px;
-    background: rgb(255, 255,255);
 }
 .barralateral{
     overflow: hidden;
@@ -88,6 +85,7 @@ body{
     width: 100%;
 }
 .direito{
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -96,12 +94,15 @@ body{
     height: 100%;
 }
 .direito .barra_pesquisa{
+    top: 0;
+    position: absolute;
+    z-index: 2;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #27ae60;
+    background: white;
     width: 100%;
-    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.214);
+    box-shadow: 0px 7px 15px rgba(0, 0, 0, 0.11);
     height: 7%;
 }
 .direito .barra_pesquisa .pesquisar{
@@ -139,7 +140,7 @@ body{
 }
 .direito .center{
     background: whitesmoke;
-    height: 93%;
+    height: 100%;
     width: 100%;
 }
 .items{
@@ -169,15 +170,15 @@ body{
     color: black;
 }
 .cards{
-    width: 100%;
+    width: 90%;
     height: 30%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 .cards .card{
-    height: 150px;
+    height: 130px;
     width: 200px;
     background: white;
     color: green;
@@ -198,8 +199,15 @@ body{
     color: white;
 }
 .cards .card .descri i{
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border:1px solid greenyellow;
+    border-radius: 10px;
     color: green;
-    font-size: 40px;
+    font-size: 20px;
 }
 .cards .card .descri p{
     color: green;
@@ -212,13 +220,39 @@ body{
     width: 100%;
     height: 50%;
 }
-.home, .cadastro{
+.home, .cadastro, .aniversariantes{
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+}
+.aniversariantes{
+    background: white;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.06);
+}
+.aniversariantes .container{
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.06);
+} 
+.aniversariantes .linhas{
+    width: 80%;
+    height: 50px;
+    display: flex;
+}
+.aniversariantes .linhas p{
+    width: 30%;
+}
+.aniversariantes .linhas a{
+    width: 10%;
 }
 .cadastro .container{
     width: 90%;
@@ -232,5 +266,46 @@ body{
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.06);
 }
 .cadastro .container p{
+    width: 100%;
     color: green;
+}
+.cadastro .container input{
+    width: 100%;
+    background: rgb(235, 235, 235);
+    border: none;
+    height: 40px;
+    padding-left: 10px;
+    border-bottom: 2px solid green;
+}
+.cadastro .container .lado-esquerdo, .cadastro .container .lado-direito{
+    padding: 10px;
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cadastro .container .form{
+    width: 70%;
+    height: auto;
+    display: flex;
+}
+#myChart {
+}
+.planilha{
+    border-radius: 10px;
+    background: white;
+    padding: 10px;
+    width:90%; 
+    height:350px;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.06);
+}
+.home #ano{
+    width: 200px;
+    height: 40px;
+    outline: none;
+    border: none;
+    background: white;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.06);
 }
